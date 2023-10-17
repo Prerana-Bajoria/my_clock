@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Clock</title>
+    <style>
+        body {
+            background-color: blanchedalmond;
+            text-align: center;
+            border: solid black 4px;
+            height: 300px;
+            width: 300px;
+            margin: auto;
+        }
+        
+        .box {
+            margin: auto;
+            border: solid black 4px;
+            text-align: center;
+            height: 300px;
+            width: 300px;
+            position: relative;
+        }
+        
+        button {
+            width: 100%;
+            height: 55px;
+            display: inline-block;
+            background-color: rgb(190, 27, 122);
+            text-align: center;
+            color: cornsilk;
+            cursor: pointer;
+            font-size: 20px;
+            padding: 3px;
+            box-shadow: none;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Here to show current time</h1>
+    <div class="contanier">
+        <h2>current time is: <span id="time"></span></h2>
+        <a href="https://www.timeanddate.com/worldclock/"><button id="click" onclick="clicked()">Browse Time</button></a>
+    </div>
+    <div id="box">
+        <script>
+            let date;
+            let time;
+            let mydate;
+            let day;
+            const days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+            setInterval(() => {
+                mydate = new Date();
+                date = mydate.toLocaleDateString();
+                time = mydate.getHours() + ':' + mydate.getMinutes() + ':' + mydate.getSeconds();
+                day = days[mydate.getDay()];
+                document.getElementById('time').innerHTML = time + "<br>" + date + "<br>" + day;
+            }, 1000);
+        </script>
+    </div>
+
+</body>
+
+</html>
